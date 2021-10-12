@@ -18,7 +18,7 @@ class ReviewForm(forms.Form):
     )
 
     def send_email(self):
-        send_review_email_task.delay
+        send_review_email_task.delay(
         self.cleaned_data['name'],
         self.cleaned_data['email'],
-        self.cleaned_data['review']
+        self.cleaned_data['review'])
