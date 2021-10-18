@@ -10,13 +10,21 @@
 
 - sudo systemctl start rabbitmq-server
 
-- systemctl status rabbitmq-server
+- systemctl status rabbitmq-server.service
 
 - celery -A <project name> worker -l info
+
+- celery -A <project name> worker -l info --pool=solo
+
+- celery -A <project name> worker --loglevel=INFO
 
 - sudo rabbitmqctl stop
 
 - python manage.py shell
+
+- from django.core.mail import send_mail
+
+- send_mail("<email title>","<email body>","<email sender>",["<email receiver>"], fail_silently=False)
 
 - from <app name>.tasks import add
 
